@@ -2,6 +2,37 @@
 
 A 2D educational role-playing game (RPG) built in Python with **Pygame**, designed to help middle school students build fluency in foundational algebra through interactive exploration, puzzle-solving, and turn-based combat.
 
+> **Refactor in progress: Axiom.** The repo is being rebuilt as **Axiom**, a deterministic, turn-based tactical RPG engine where *algebraic manipulation is the combat*. Enemies are unsolved equations, and you defeat them by playing Operation Cards (`Subtract 4`, `Divide by 3`, `Distribute`, `Combine Like Terms`, ...) until `x` stands alone, then finishing with `Execute Solve`.
+>
+> The original Pygame prototype and its assets now live in [`legacy/`](legacy/). Run it with `cd legacy && python main.py`.
+
+## Axiom quick start
+
+```bash
+cd axiom
+python -m venv .venv && source .venv/bin/activate
+pip install -e ".[dev]"
+pytest              # full test suite (includes a 1,000-equation generator fuzz test)
+mypy                # strict type checking of core/, tests/ and cli_demo.py
+python cli_demo.py  # play a 5-enemy run in the terminal (--seed N, --auto)
+```
+
+```text
+axiom/
+├── core/            # Pure Python, zero UI deps, written to port cleanly to C++20
+│   ├── ast_nodes.py # Immutable expression tree (Constant, Variable, BinaryOp, Group), exact Fractions
+│   ├── equation.py  # Equation (lhs = rhs) with granular transforms: both-sides ops, combine, distribute
+│   ├── generator.py # Reverse generator: builds Tier 1-3 equations backward from an integer root
+│   ├── cards.py     # Operation Cards with non-destructive preview() and event-emitting execute()
+│   ├── solver.py    # Step-by-step card solver (contextual hand generation, hints, auto-play)
+│   ├── combat.py    # Combat FSM, immutable state snapshots, per-turn undo stack, enemy intents
+│   └── events.py    # Typed, frozen event dataclasses for a future UI layer
+├── tests/
+└── cli_demo.py      # Terminal prototype of the combat loop
+```
+
+**Combat rules:** you have 50 HP and 3 AP per turn. Most cards cost 1 AP, and *Combine Like Terms* costs 0. Each turn you draw from your deck, and the engine conjures one-turn cards (`*conjured`) so a full turn of real progress is always possible. Enemies telegraph their next move: **Attack N** (damage), **Reinforce +N** (adds N to both sides), or **Fortify xN** (multiplies both sides). You can undo any card play until you end your turn.
+
 ---
 
 ## Overview
