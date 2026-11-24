@@ -1,67 +1,85 @@
-# An Algebraic Adventure 🧙‍♂️✨
+# An Algebraic Adventure
 
-**An Algebraic Adventure** is a 2D educational RPG built in Python using the Pygame library. Originally created as a high school project, this game is designed to help middle school students practice and learn algebra in a fun, interactive, and gamified environment.
+A 2D educational role-playing game (RPG) built in Python with **Pygame**, designed to help middle school students build fluency in foundational algebra through interactive exploration, puzzle-solving, and turn-based combat.
 
-Players take on the role of Arick Odarin, a brave wizard, and must solve algebraic equations to defeat a series of monsters and save the realm!
+---
 
-## 🎮 Features
+## Overview
 
-- **Gamified Learning:** Classic turn-based RPG combat powered by math! Answer questions correctly to cast spells and attack; answer incorrectly, and the monster strikes back.
+**An Algebraic Adventure** transforms traditional algebra practice into an engaging dungeon-and-overworld adventure. Instead of static worksheets, players progress through quests, unlock areas, and defeat enemies by solving dynamically generated algebraic equations and expressions.
 
-- **Progressive Difficulty:** 5 distinct levels, each focusing on different mathematical and algebraic concepts.
+Originally developed as a high school computer science project, this repository showcases object-oriented game architecture, state management, tile-based movement, and procedural math problem generation.
 
-- **Animated Sprites:** Features idle, attack, hit, and death animations for the hero and a cast of enemies.
+### Educational Concepts Covered
+- **Order of Operations (PEMDAS):** Evaluating multi-step numerical expressions.
+- **One-Step & Two-Step Linear Equations:** Solving for unknown variables (e.g., $2x + 5 = 17$).
+- **Variables & Substitution:** Evaluating algebraic expressions for given variable values.
+- **Inequalities & Ratios:** Applying proportional reasoning and comparison logic in boss encounters.
 
-- **Built-in UI:** Includes interactive Start, Story, and Rules menus, alongside a custom text-input box for typing out algebraic answers.
+---
 
-- **Visual Feedback:** Dynamic health bars and immediate visual feedback for correct or incorrect answers.
+## Features
 
-## 🛠️ Requirements
+- **Turn-Based Math Combat:** Attack accuracy, damage multipliers, and defensive shields scale with the player's speed and accuracy in solving algebra problems.
+- **Progressive Difficulty:** Enemy encounters dynamically adjust equation complexity based on the current zone or player level.
+- **2D World Exploration:** Top-down movement, collision detection, NPC dialogue, and interactive checkpoints.
+- **Object-Oriented Architecture:** Modular separation between the game loop, entity sprites, UI overlays, and the procedural math problem engine.
 
-To run this game, you will need **Python 3.x** and the **Pygame** library installed on your machine.
+---
 
-You can install Pygame via pip:
+## Repository Structure
 
+```text
+An_Algebraic_Adventure/
+├── assets/               # Sprites, tilesets, fonts, and audio files
+├── src/                  # Core game logic, entities, states, and math engine
+├── main.py               # Entry point to launch the game
+├── requirements.txt      # Python dependencies (pygame)
+└── README.md
+```
+*(Adjust directory names above if your local file layout differs.)*
+
+---
+
+## Getting Started
+
+### Prerequisites
+- Python 3.8+
+- `pygame`
+
+### Installation
 ```bash
-pip install pygame
-
+git clone [https://github.com/mihirvc19/An_Algebraic_Adventure.git](https://github.com/mihirvc19/An_Algebraic_Adventure.git)
+cd An_Algebraic_Adventure
+pip install -r requirements.txt
 ```
 
-## 🚀 How to Play
-
-1. **Clone the repository:**
-
-```bash
-git clone https://github.com/yourusername/an-algebraic-adventure.git
-
-```
-
-````
-2. **Navigate to the directory:**
-   ```bash
-cd an-algebraic-adventure
-
-````
-
-3. **Run the game:**
-
+### Running the Game
 ```bash
 python main.py
-
 ```
 
-```
-*(Note: Ensure that the `Resources/` folder containing all background, character, and UI images is kept in the same directory as `main.py`[cite: 1].)*
+---
 
-## 📚 Level Breakdown
-The game scales in difficulty, introducing new enemies as the player progresses:
-* **Level 1:** Troadstool (Mushroom)[cite: 1]
-* **Level 2:** Smugteeth (Goblin)[cite: 1]
-* **Level 3:** Murkeye (Flying Eye)[cite: 1]
-* **Level 4:** Stinkbone (Skeleton)[cite: 1]
-* **Level 5:** Alcheminus (Evil Wizard)[cite: 1]
+## Controls
 
-## 💡 About the Project
-This project was developed in high school with the goal of making math less intimidating for middle schoolers. By combining standard curriculum questions with fantasy game mechanics, *An Algebraic Adventure* encourages students to keep trying, level up their skills, and see the magic in math.
+| Key | Action |
+| :--- | :--- |
+| **W A S D** / **Arrow Keys** | Move character |
+| **Enter** / **Space** | Interact with NPCs / Confirm answer |
+| **0–9**, **`-`**, **Backspace** | Input numerical solutions during encounters |
+| **Esc** | Pause menu / Quit |
 
-```
+---
+
+## Future Improvements
+
+- [ ] Add multi-step equations with variables on both sides and basic graphing challenges.
+- [ ] Implement persistent save files (`JSON`) to track student progress and accuracy statistics across sessions.
+- [ ] Package standalone executables via `PyInstaller` for classroom deployment without requiring Python setup.
+
+---
+
+## License
+
+This project is open-source and available under the [MIT License](LICENSE).
